@@ -1,0 +1,89 @@
+using System;
+
+namespace ClassMetotDemo
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Customer Customer1 = new Customer();
+            Customer1.Name = "Tufan Miraç";
+            Customer1.Surname = "Bezgen";
+            Customer1.Password = 1234;
+            Customer1.IDNumber = 1000000000;
+
+
+            Customer Customer2 = new Customer();
+            Customer2.Name = "Baran";
+            Customer2.Surname = "Bezgen";
+            Customer2.Password = 5678;
+            Customer2.IDNumber = 1100000000;
+
+
+            Customer Customer3 = new Customer();
+            Customer3.Name = "Batuhan";
+            Customer3.Surname = "Çağlayan";
+            Customer3.Password = 1357;
+            Customer3.IDNumber = 1110000000;
+
+
+            Customer Customer4 = new Customer();
+            Customer4.Name = "Hasan";
+            Customer4.Surname = "Çağlayan";
+            Customer4.Password = 2468;
+            Customer4.IDNumber = 1111000000;
+
+            Customer[] Customers = new Customer[] { Customer1, Customer2, Customer3, Customer4 };
+            foreach (var Customer in Customers)
+            {
+                Console.WriteLine("Customer Informations");
+                Console.WriteLine("Name : " + Customer.Name);
+                Console.WriteLine("Surname : " + Customer.Surname);
+                Console.WriteLine("Password : " + Customer.Password);
+                Console.WriteLine("ID Number : " + Customer.IDNumber);
+
+
+            }
+
+
+
+
+
+
+            CustomerManager CustomerManager = new CustomerManager();
+            CustomerManager.Customeradd(Customer1);
+            CustomerManager.Customeradd(Customer2);
+
+            CustomerManager CustomerManager1 = new CustomerManager();
+            CustomerManager1.CustomerDelete(Customer3);
+            CustomerManager1.CustomerDelete(Customer4);
+        }
+
+
+
+        class CustomerManager
+        {
+            public void Customeradd(Customer customer)
+            {
+                Console.WriteLine("Congratulation! Customer Add : " + customer.Name + " , " + customer.Surname + " , " + customer.Password + " , " + customer.IDNumber);
+            }
+
+            public void CustomerDelete(Customer customer)
+            {
+                Console.WriteLine("Congratulation! Customer Delete : " + customer.Name + " , " + customer.Surname + " , " + customer.Password + " , " + customer.IDNumber);
+            }
+
+
+        }
+
+    }
+
+
+    class Customer
+    {
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public int Password { get; set; }
+        public long IDNumber { get; set; }
+    }
+}
